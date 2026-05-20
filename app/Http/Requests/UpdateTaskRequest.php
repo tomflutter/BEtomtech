@@ -6,9 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-/**
- * Form Request untuk validasi pembaruan Task yang sudah ada.
- */
+
 class UpdateTaskRequest extends FormRequest
 {
     public function authorize(): bool
@@ -16,9 +14,7 @@ class UpdateTaskRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Aturan validasi — semua field opsional karena bisa partial update.
-     */
+    
     public function rules(): array
     {
         return [

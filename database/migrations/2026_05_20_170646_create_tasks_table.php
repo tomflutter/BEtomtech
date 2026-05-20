@@ -17,10 +17,10 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('title');                        // Judul tugas (wajib)
-            $table->text('description')->nullable();        // Deskripsi tugas (opsional)
-            $table->boolean('is_completed')->default(false); // Status selesai (default: belum)
-            $table->timestamps();                           // created_at & updated_at otomatis
+            $table->string('title');                        
+            $table->text('description')->nullable();       
+            $table->boolean('is_completed')->default(false);
+            $table->timestamps();                          
         });
     }
 

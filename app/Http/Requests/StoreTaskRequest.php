@@ -6,10 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-/**
- * Form Request untuk validasi pembuatan Task baru.
- * Memastikan data yang masuk valid sebelum diproses controller.
- */
+
 class StoreTaskRequest extends FormRequest
 {
     /**
@@ -20,20 +17,16 @@ class StoreTaskRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Aturan validasi untuk request ini.
-     */
+    
     public function rules(): array
     {
         return [
-            'title'       => 'required|string|max:255',   // Judul wajib, maks 255 karakter
-            'description' => 'nullable|string|max:1000',  // Deskripsi opsional, maks 1000 karakter
+            'title'       => 'required|string|max:255',
+            'description' => 'nullable|string|max:1000', 
         ];
     }
 
-    /**
-     * Pesan error kustom dalam Bahasa Indonesia.
-     */
+    
     public function messages(): array
     {
         return [
@@ -43,9 +36,7 @@ class StoreTaskRequest extends FormRequest
         ];
     }
 
-    /**
-     * Override: Kembalikan JSON saat validasi gagal (bukan redirect).
-     */
+
     protected function failedValidation(Validator $validator): void
     {
         throw new HttpResponseException(
